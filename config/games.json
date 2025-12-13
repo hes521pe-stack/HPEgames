@@ -14,6 +14,11 @@
     "imgSrc": "projects/monkeymart/monkey-mart-f180x180.png",
     "title": "Monkey mart"
   },
+   {
+    "link": "projects/minecraft-sp/index.html",
+    "imgSrc": "projects/minecraft-sp/pack.png",
+    "title": "Minecraft Singleplayer"
+  },
   {
     "link": "projects/1/index.html",
     "imgSrc": "projects/1/meta/apple-touch-icon.png",
@@ -423,11 +428,6 @@
     "link": "projects/minecraft-classic/index.html",
     "imgSrc": "projects/minecraft-classic/pack.png",
     "title": "Minecraft Classic"
-  },
-  {
-    "link": "projects/minecraft-sp/index.html",
-    "imgSrc": "projects/minecraft-sp/pack.png",
-    "title": "Minecraft Singleplayer"
   },
   {
     "link": "projects/minesweeper/index.html",
