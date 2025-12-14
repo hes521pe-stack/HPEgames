@@ -19,6 +19,11 @@
     "imgSrc": "projects/minecraft-sp/pack.png",
     "title": "Minecraft Singleplayer"
   },
+  {
+    "link": "projects/tombofthemask/index.html",
+    "imgSrc": "projects/tombofthemask/totm.png",
+    "title": "Tomb of the mask"
+  },
    {
     "link": "projects/tinyfishing/index.html",
     "imgSrc": "projects/tinyfishing/tinyfishing.png",
