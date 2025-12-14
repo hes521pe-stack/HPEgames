@@ -604,6 +604,11 @@
     "imgSrc": "projects/soundboard/img/mlg-favicon.png",
     "title": "Soundboard"
   },
+   {
+    "link": "projects/skibidishooter/index.html",
+    "imgSrc": "projects/skibidishooter/skibidi-shooter-180x180.webp",
+    "title": "Skibidi shooter"
+  },
   {
     "link": "projects/stack/index.html",
     "imgSrc": "projects/stack/stack.png",
