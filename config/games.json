@@ -30,6 +30,11 @@
     "title": "Tiny fishing"
   },
   {
+    "link": "projects/krunker/index.html",
+    "imgSrc": "projects/krunker/img/krunker-io.jpg",
+    "title": "Krunker"
+  },
+  {
     "link": "projects/1/index.html",
     "imgSrc": "projects/1/meta/apple-touch-icon.png",
     "title": "1"
@@ -403,11 +408,6 @@
     "link": "projects/kittencannon/index.html",
     "imgSrc": "projects/kittencannon/kittencannon.png",
     "title": "Kitten Cannon"
-  },
-  {
-    "link": "projects/krunker/index.html",
-    "imgSrc": "projects/krunker/img/krunker-io.jpg",
-    "title": "Krunker"
   },
   {
     "link": "projects/learntofly/index.html",
