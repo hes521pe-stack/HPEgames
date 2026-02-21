@@ -1,15 +1,15 @@
 function getRandomGreeting() {
   var greetings = [
-"HPE is the goat",
+"HP-E is the goat",
 "made by bubber",
-"brought to you by..."
-"NOT seen on TV!",
-"Lets hope the school dont know..",
-"LONG LIVE G.E.S.!!!!!!",
-"your chromebook is fried bro",
-"insert text here",
+"The Jerk was here!!!",
+"Donald Eugene Is my favorite!",
+"Lets hope the school dosen't know..",
+"LONG LIVE G.E.S.!!!",
+"Nope, No jerk!",
+"You're a jerk!",
 "bombardilo crocodilo",
-"its all in your imagination"
+"Quit lookin here!",
 "i was never here..."
   ];
   var randomIndex = Math.floor(Math.random() * greetings.length);
