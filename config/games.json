@@ -49,6 +49,11 @@
     "imgSrc": "projects/krunker/img/krunker-io.jpg",
     "title": "Krunker"
   },
+   {
+    "link": "/Hproxy/embed#https://www.lego.com/assets/FranchiseSites/MarvelSuperHeroes/Gotg/Game/v1.4/index.html",
+    "imgSrc": "projects/gotg/gotg.png",
+    "title": "LEGO Gotg Game"
+  },
   {
     "link": "projects/1/",
     "imgSrc": "projects/1/meta/apple-touch-icon.png",
