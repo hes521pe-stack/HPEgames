@@ -2,148 +2,198 @@
 <html lang="en-US">
   <head>
     <title>Projects | HPEGames</title>
-    <meta name="keywords" content="front-end web developer, unblocked, games, google sites, unblocked games mom, ublocked, code, coding, programmer, development, javascript, jquery, bootstrap, sass, less, git" />
-    <meta property="og:title" content="Welcome to HPEGames, a lightweight, fast, and clean game site." />
-    <meta property="og:site_name" content="3kh0.github.io" />
-    <meta property="og:description" content="Welcome to 3kh0 lite, a lightweight, fast, and clean game site." />
-    <meta name="description" content="Welcome to HPEGames, a lightweight, fast, and clean game site." />
-    <meta name="author" content="3kh0" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="shortcut-icon" href="/favicon.ico" />
-    <script src="/js/main.js"></script>
     <style>
-      p {
-        text-align: center;
+      :root {
+        --hpe-red: #eb4034;
+        --hpe-gold: #f5b027;
+        --hpe-black: #1a1a1a;
+        --hpe-dark-gray: #333333;
+      }
+
+      body {
+        background-color: var(--hpe-red);
+        color: orange;
+        font-family: 'Arial Black', sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        text-shadow: 3px 3px 0px var(--hpe-black);
+      }
+
+      /* Modern Search Bar */
+      #search {
+        width: 100%;
         max-width: 600px;
-        margin: 20px auto;
+        padding: 15px 25px;
+        font-size: 18px;
+        border: 4px solid var(--hpe-black);
+        border-radius: 12px;
+        background: white;
+        margin-bottom: 40px;
+        outline: none;
       }
-      button {
-        cursor: pointer;
-        background-color: #F5B027;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        border-radius: 20px;
-        margin-top: 20px;
+
+      /* The Masonry Grid */
+      .game-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-auto-rows: 140px; /* Ensures everything stays square-based */
+        grid-auto-flow: dense; /* Fills in gaps automatically */
+        gap: 15px;
+        max-width: 1200px;
+        margin: 0 auto;
       }
+
+      /* Game Card Base */
       .game-link {
-        height: 400px;
-        width: 300px;
         text-decoration: none;
+        position: relative;
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
+
+      .game-link:hover {
+        transform: scale(1.05);
+        z-index: 10;
+      }
+
+      /* Random Sizing Classes */
+      .size-small { grid-column: span 1; grid-row: span 1; }
+      .size-large { grid-column: span 2; grid-row: span 2; }
+
       .game-tile {
-        background-color: #737373;
-        height: 400px;
-        width: 300px;
-        border-radius: 30px;
-      }
-      .game-icon {
-        border-radius: 30px;
-        width: 300px;
-        height: 300px;
-      }
-      .game-title {
-        font-size: 30px;
-        font-weight: bold;
-        color: #FFFFFF;
-        text-align: center;
-        margin: auto;
-      }
-      .flex-container {
+        background-color: var(--hpe-black);
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+        border: 4px solid var(--hpe-black);
+        box-shadow: 0 6px 0px rgba(0,0,0,0.2);
         display: flex;
-        flex-direction: row;
-        order: 0;
-        flex-grow: 0;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
       }
-      .container {
+
+      .game-icon {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Title overlay - Poki style */
+      .game-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        color: var(--hpe-gold);
+        margin: 0;
         padding: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.2s;
       }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
+
+      .game-link:hover .game-title {
+        opacity: 1;
+      }
+
+      /* Buttons */
+      .btn-gold {
+        cursor: pointer;
+        background-color: var(--hpe-gold);
+        border: none;
+        color: var(--hpe-black);
+        padding: 15px 35px;
+        font-weight: 900;
+        font-size: 18px;
+        border-radius: 50px;
+        box-shadow: 0 5px 0px #b8861b;
+        margin-top: 50px;
+        transition: all 0.1s;
+      }
+
+      .btn-gold:active {
+        transform: translateY(4px);
+        box-shadow: 0 1px 0px #b8861b;
+      }
+
+      #loader {
+        border: 10px solid var(--hpe-dark-gray);
+        border-top: 10px solid var(--hpe-gold);
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        animation: spin 0.8s linear infinite;
+        margin: 50px auto;
+      }
+
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+      @media (max-width: 500px) {
+        .game-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); grid-auto-rows: 100px; }
       }
     </style>
   </head>
-  <body style="background-color: #eb4034; color: black; font-family: sans-serif; text-decoration: none; text-align: center;">
-    <h1 style="font-size: 3em; text-align: center;">Projects</h1>
-    <input type="text" id="search" onkeyup="searchGames()" placeholder="Search for games..." style="width: 100%; font-size: 18px; padding: 6px 20px; margin: auto; border-radius: 30px; max-width: 600px; margin-bottom: 10px;" />
-    <div id="loader" style="display: block; border: 16px solid #; border-top: 16px solid #3498db; border-radius: 50%; width: 120px; height: 120px; animation: spin 0.3s linear infinite; margin: auto; margin-top: 1rem;"></div>
-    <div id="game-container" class="flex-container"></div>
-    <p class="text-center">
-      <a href="/index.html" style="text-decoration: none;">
-        <button style="cursor: pointer; background-color: #F5B027; border: none; color: black; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 20px; margin-top: 5px;">
-          Go to the homepage
-        </button>
-      </a>
+  <body>
+
+    <h1>HPE Projects</h1>
+    
+    <input type="text" id="search" onkeyup="searchGames()" placeholder="Find a game..." />
+
+    <div id="loader"></div>
+    <div id="game-container" class="game-grid"></div>
+
+    <p>
+      <a href="/index.html"><button class="btn-gold">Back to Home</button></a>
     </p>
-    <button id="back-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px;">Back to top</button>
+
     <script>
       let games = [];
-      fetch("config/games.json")
-      .then((response) => response.json())
-      .then((data) => {
-        games = data;
-        const container = document.getElementById("game-container");
-        data.forEach((project) => {
-          const game = document.createElement("a");
-          game.href = project.link;
-            game.className = "game-link container";
-            game.innerHTML = `
-            <div class="game-tile">
-              <img class="game-icon" src="${project.imgSrc}" alt="icon" />
-              <p class="game-title">${project.title}</p>
-              </div>`;
-              container.appendChild(game);
-          });
-          document.getElementById("loader").style.display = "none";
-        })
-        .catch((error) => console.error("Error:", error));
 
-      function searchGames() {
-        const input = document.getElementById("search");
-        const filter = input.value.toUpperCase();
+      function renderGames(gameList) {
         const container = document.getElementById("game-container");
         container.innerHTML = "";
-        games
-          .filter((game) => game.title.toUpperCase().includes(filter))
-          .forEach((project) => {
-            const game = document.createElement("a");
-            game.href = project.link;
-            game.className = "game-link container";
-            game.innerHTML = `
+        
+        gameList.forEach((project, index) => {
+          const game = document.createElement("a");
+          game.href = project.link;
+          
+          // Logic for random-ish sizing: every 4th item is large
+          const sizeClass = (index % 5 === 0) ? "size-large" : "size-small";
+          game.className = `game-link ${sizeClass}`;
+          
+          game.innerHTML = `
             <div class="game-tile">
-              <img class="game-icon" src="${project.imgSrc}" alt="icon" loading="lazy" />
+              <img class="game-icon" src="${project.imgSrc}" alt="${project.title}" loading="lazy" />
               <p class="game-title">${project.title}</p>
-              </div>`;
-            container.appendChild(game);
-          });
-        }
-        const backToTopButton = document.getElementById('back-to-top');
-        window.onscroll = function () {
-          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            backToTopButton.style.display = "block";
-          } else {
-          backToTopButton.style.display = "none";
-        }
-      };
+            </div>`;
+          container.appendChild(game);
+        });
+      }
 
-      backToTopButton.onclick = function () {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      };
+      fetch("config/games.json")
+        .then(res => res.json())
+        .then(data => {
+          games = data;
+          renderGames(games);
+          document.getElementById("loader").style.display = "none";
+        })
+        .catch(err => console.error("Error:", err));
+
+      function searchGames() {
+        const filter = document.getElementById("search").value.toUpperCase();
+        renderGames(games.filter(g => g.title.toUpperCase().includes(filter)));
+      }
     </script>
   </body>
 </html>
